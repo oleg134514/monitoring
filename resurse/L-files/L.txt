@@ -1,0 +1,314 @@
+# line - линия, имеет всегда толщтну 1 пиксель если не указано другое;
+# gif - изображение в формате gif;
+# text - поле для текста, используется шрифт "Inter";
+# x - начало координат по оси x;
+# y - начало координат по оси y;
+# w - ширина объекта в пикселях от начала координат  в право;
+# h - высота объекта в пикселях от начала координат в низ;
+# r - угол наклона объекта (0 - горизонталь с лева на право);
+# p - размер шрифта;
+# пиксель с координатой x0y0 находится в верхнем левом углу;
+# цвет задается отдельно для каждого объекта кроме линий и изображения, цвет линий регулируется единственной переменной, изображения самостоятельно содержат в себе данные о цвете.
+# status_server_ (#FF0000 (это красный) !=1, 00FF00 (это зеленый) =1)
+# cpu_server_ (#FF0000 (это красный) >=80, #FFA500 (оранжевый) >=60 и <80 , #FFFF00(желтый) >=40 и <60)
+# ram_server_ ( это параметр имеет запись как XXX.X/YYY, #FF0000 если результат деления >0,9)
+# Tcpu_server_ (#00FF00 <30, #FFFF00 50-55, #FFA500 56-65, #FF0000 >65)
+# POOL_server_ (#FF0000 (это красный) !=1, 00FF00 (это зеленый) =1)
+# fan_server_ (#FF0000 (это красный) !=1, 00FF00 (это зеленый) =1)
+# vm_status_ (#FF0000 (это красный) !=1, 00FF00 (это зеленый) =1)
+# vm_cpu_ (#FF0000 (это красный) >=80, #FFA500 (оранжевый) >=60 и <80 , #FFFF00(желтый) >=40 и <60)
+# vm_memory_ ( это параметр имеет запись как XXX.X/YYY, #FF0000 если результат деления >0,9)
+# temp_top_c ( #0000FF <20, #FF0000 >35)
+# temp_down_c ( #0000FF <20, #FF0000 >35)
+# volt_v  (#FF0000 <200, #FF0000 >240)
+# tok_a
+# 
+# Значение статусов для status_server_, vm_status_ 
+# online=1
+# offline=0
+# Значение статусов для POOL_server_, fan_server_
+# ok=1
+# ERROR=0
+
+
+line x0y30w1024r0
+line x256y30w190r90
+line x512y30w190r90
+line x768y30w190r90
+line x0y220w1024r0
+line x0y250w1024r0
+line x0y280w1024r0
+line x0y310w1024r0
+line x0y340w1024r0
+line x0y370w1024r0
+line x0y400w1024r0
+line x0y430w1024r0
+line x0y460w1024r0
+line x0y490w1024r0
+line x0y520w1024r0
+line x0y550w1024r0
+line x342y220w330r90
+line x682y220w330r90
+line x512y550w50r90
+gif x3y3w24h24
+text x30y0w145h30p24 id=name_board
+text x200y0w125h30p24 id=real_time
+text x350y0w155h30p24 id=real_date
+text x530y0w150h30p24 id=day_week
+text x705y0w70h30p24 id=speed_wind
+text x800y0w70h30p24 id=real_temp
+text x895y0w100h30p24 id=weather
+text x996y0w30h30p24 id=icon_weather
+text x3y30w35h21p18 id=name_server_1
+text x45y30w160h21p18 id=ip_server_1
+text x3y51w75h21p18 id=status_server_1
+text x85y51w150h21p18 id=uptime_server_1
+text x3y72w45h21p18 id=cpu
+text x55y72w50h21p18 id=cpu_server_1
+text x3y93w47h21p18 id=Fcpu
+text x55y93w90h21p18 id=Fcpu_server_1
+text x3y114w45h21p18 id=ram
+text x55y114w128h21p18 id=ram_server_1
+text x3y135w47h21p18 id=Tcpu
+text x55y135w48h21p18 id=Tcpu_server_1
+text x3y156w54h21p18 id=POOL
+text x64y156w95h21p18 id=POOL_server_1
+text x3y177w54h21p18 id=net
+text x64y177w190h21p18 id=net_server_1
+text x3y198w45h21p18 id=fan
+text x55y198w95h21p18 id=fan_server_1
+text x259y30w35h21p18 id=name_server_2
+text x301y30w160h21p18 id=ip_server_2
+text x259y51w75h21p18 id=status_server_2
+text x341y51w150h21p18 id=uptime_server_2
+text x259y72w45h21p18 id=cpu
+text x311y72w50h21p18 id=cpu_server_2
+text x259y93w47h21p18 id=Fcpu
+text x311y93w90h21p18 id=Fcpu_server_2
+text x259y114w45h21p18 id=ram
+text x311y114w128h21p18 id=ram_server_2
+text x259y135w47h21p18 id=Tcpu
+text x311y135w48h21p18 id=Tcpu_server_2
+text x259y156w54h21p18 id=POOL
+text x320y156w95h21p18 id=POOL_server_2
+text x259y177w54h21p18 id=net
+text x320y177w190h21p18 id=net_server_2
+text x259y198w45h21p18 id=fan
+text x311y198w95h21p18 id=fan_server_2
+text x515y30w35h21p18 id=name_server_3
+text x557y30w160h21p18 id=ip_server_3
+text x515y51w75h21p18 id=status_server_3
+text x597y51w150h21p18 id=uptime_server_3
+text x515y72w45h21p18 id=cpu
+text x567y72w50h21p18 id=cpu_server_3
+text x515y93w47h21p18 id=Fcpu
+text x567y93w90h21p18 id=Fcpu_server_3
+text x515y114w45h21p18 id=ram
+text x567y114w128h21p18 id=ram_server_3
+text x515y135w47h21p18 id=Tcpu
+text x567y135w48h21p18 id=Tcpu_server_3
+text x515y156w54h21p18 id=POOL
+text x576y156w95h21p18 id=POOL_server_3
+text x515y177w54h21p18 id=net
+text x576y177w190h21p18 id=net_server_3
+text x515y198w45h21p18 id=fan
+text x567y198w95h21p18 id=fan_server_3
+text x771y30w35h21p18 id=name_server_4
+text x813y30w160h21p18 id=ip_server_4
+text x771y51w75h21p18 id=status_server_4
+text x853y51w150h21p18 id=uptime_server_4
+text x771y72w45h21p18 id=cpu
+text x823y72w50h21p18 id=cpu_server_4
+text x771y93w47h21p18 id=Fcpu
+text x823y93w90h21p18 id=Fcpu_server_4
+text x771y114w45h21p18 id=ram
+text x823y114w128h21p18 id=ram_server_4
+text x771y135w47h21p18 id=Tcpu
+text x823y135w48h21p18 id=Tcpu_server_4
+text x771y156w54h21p18 id=POOL
+text x832y156w95h21p18 id=POOL_server_4
+text x771y177w54h21p18 id=net
+text x832y177w190h21p18 id=net_server_4
+text x771y198w45h21p18 id=fan
+text x823y198w95h21p18 id=fan_server_4
+text x3y225w20h20p14 id=vm_status_1
+text x3y255w20h20p14 id=vm_status_2
+text x3y285w20h20p14 id=vm_status_3
+text x3y315w20h20p14 id=vm_status_4
+text x3y345w20h20p14 id=vm_status_5
+text x3y375w20h20p14 id=vm_status_6
+text x3y405w20h20p14 id=vm_status_7
+text x3y435w20h20p14 id=vm_status_8
+text x3y465w20h20p14 id=vm_status_9
+text x3y495w20h20p14 id=vm_status_10
+text x3y525w20h20p14 id=vm_status_11
+text x346y225w20h20p14 id=vm_status_12
+text x346y255w20h20p14 id=vm_status_13
+text x346y285w20h20p14 id=vm_status_14
+text x346y315w20h20p14 id=vm_status_15
+text x346y345w20h20p14 id=vm_status_16
+text x346y375w20h20p14 id=vm_status_17
+text x346y405w20h20p14 id=vm_status_18
+text x346y435w20h20p14 id=vm_status_19
+text x346y465w20h20p14 id=vm_status_20
+text x346y495w20h20p14 id=vm_status_21
+text x346y525w20h20p14 id=vm_status_22
+text x687y225w20h20p14 id=vm_status_23
+text x687y255w20h20p14 id=vm_status_24
+text x687y285w20h20p14 id=vm_status_25
+text x687y315w20h20p14 id=vm_status_26
+text x687y345w20h20p14 id=vm_status_27
+text x687y375w20h20p14 id=vm_status_28
+text x687y405w20h20p14 id=vm_status_29
+text x687y435w20h20p14 id=vm_status_30
+text x687y465w20h20p14 id=vm_status_31
+text x687y495w20h20p14 id=vm_status_32
+text x687y525w20h20p14 id=vm_status_33
+text x26y225w50h20p14 id=vm_id_1
+text x26y255w50h20p14 id=vm_id_2
+text x26y285w50h20p14 id=vm_id_3
+text x26y315w50h20p14 id=vm_id_4
+text x26y345w50h20p14 id=vm_id_5
+text x26y375w50h20p14 id=vm_id_6
+text x26y405w50h20p14 id=vm_id_7
+text x26y435w50h20p14 id=vm_id_8
+text x26y465w50h20p14 id=vm_id_9
+text x26y495w50h20p14 id=vm_id_10
+text x26y525w50h20p14 id=vm_id_11
+text x369y225w50h20p14 id=vm_id_12
+text x369y255w50h20p14 id=vm_id_13
+text x369y285w50h20p14 id=vm_id_14
+text x369y315w50h20p14 id=vm_id_15
+text x369y345w50h20p14 id=vm_id_16
+text x369y375w50h20p14 id=vm_id_17
+text x369y405w50h20p14 id=vm_id_18
+text x369y435w50h20p14 id=vm_id_19
+text x369y465w50h20p14 id=vm_id_20
+text x369y495w50h20p14 id=vm_id_21
+text x369y525w50h20p14 id=vm_id_22
+text x710y225w50h20p14 id=vm_id_23
+text x710y255w50h20p14 id=vm_id_24
+text x710y285w50h20p14 id=vm_id_25
+text x710y315w50h20p14 id=vm_id_26
+text x710y345w50h20p14 id=vm_id_27
+text x710y375w50h20p14 id=vm_id_28
+text x710y405w50h20p14 id=vm_id_29
+text x710y435w50h20p14 id=vm_id_30
+text x710y465w50h20p14 id=vm_id_31
+text x710y495w50h20p14 id=vm_id_32
+text x710y525w50h20p14 id=vm_id_33
+text x79y225w100h20p14 id=vm_name_1
+text x79y255w100h20p14 id=vm_name_2
+text x79y285w100h20p14 id=vm_name_3
+text x79y315w100h20p14 id=vm_name_4
+text x79y345w100h20p14 id=vm_name_5
+text x79y375w100h20p14 id=vm_name_6
+text x79y405w100h20p14 id=vm_name_7
+text x79y435w100h20p14 id=vm_name_8
+text x79y465w100h20p14 id=vm_name_9
+text x79y495w100h20p14 id=vm_name_10
+text x79y525w100h20p14 id=vm_name_11
+text x422y225w100h20p14 id=vm_name_12
+text x422y255w100h20p14 id=vm_name_13
+text x422y285w100h20p14 id=vm_name_14
+text x422y315w100h20p14 id=vm_name_15
+text x422y345w100h20p14 id=vm_name_16
+text x422y375w100h20p14 id=vm_name_17
+text x422y405w100h20p14 id=vm_name_18
+text x422y435w100h20p14 id=vm_name_19
+text x422y465w100h20p14 id=vm_name_20
+text x422y495w100h20p14 id=vm_name_21
+text x422y525w100h20p14 id=vm_name_22
+text x763y225w100h20p14 id=vm_name_23
+text x763y255w100h20p14 id=vm_name_24
+text x763y285w100h20p14 id=vm_name_25
+text x763y315w100h20p14 id=vm_name_26
+text x763y345w100h20p14 id=vm_name_27
+text x763y375w100h20p14 id=vm_name_28
+text x763y405w100h20p14 id=vm_name_29
+text x763y435w100h20p14 id=vm_name_30
+text x763y465w100h20p14 id=vm_name_31
+text x763y495w100h20p14 id=vm_name_32
+text x763y525w100h20p14 id=vm_name_33
+text x182y225w50h20p14 id=vm_cpu_1
+text x182y255w50h20p14 id=vm_cpu_2
+text x182y285w50h20p14 id=vm_cpu_3
+text x182y315w50h20p14 id=vm_cpu_4
+text x182y345w50h20p14 id=vm_cpu_5
+text x182y375w50h20p14 id=vm_cpu_6
+text x182y405w50h20p14 id=vm_cpu_7
+text x182y435w50h20p14 id=vm_cpu_8
+text x182y465w50h20p14 id=vm_cpu_9
+text x182y495w50h20p14 id=vm_cpu_10
+text x182y525w50h20p14 id=vm_cpu_11
+text x525y225w50h20p14 id=vm_cpu_12
+text x525y255w50h20p14 id=vm_cpu_13
+text x525y285w50h20p14 id=vm_cpu_14
+text x525y315w50h20p14 id=vm_cpu_15
+text x525y345w50h20p14 id=vm_cpu_16
+text x525y375w50h20p14 id=vm_cpu_17
+text x525y405w50h20p14 id=vm_cpu_18
+text x525y435w50h20p14 id=vm_cpu_19
+text x525y465w50h20p14 id=vm_cpu_20
+text x525y495w50h20p14 id=vm_cpu_21
+text x525y525w50h20p14 id=vm_cpu_22
+text x866y225w50h20p14 id=vm_cpu_23
+text x866y255w50h20p14 id=vm_cpu_24
+text x866y285w50h20p14 id=vm_cpu_25
+text x866y315w50h20p14 id=vm_cpu_26
+text x866y345w50h20p14 id=vm_cpu_27
+text x866y375w50h20p14 id=vm_cpu_28
+text x866y405w50h20p14 id=vm_cpu_29
+text x866y435w50h20p14 id=vm_cpu_30
+text x866y465w50h20p14 id=vm_cpu_31
+text x866y495w50h20p14 id=vm_cpu_32
+text x866y525w50h20p14 id=vm_cpu_33
+text x235y225w105h20p14 id=vm_memory_1
+text x235y255w105h20p14 id=vm_memory_2
+text x235y285w105h20p14 id=vm_memory_3
+text x235y315w105h20p14 id=vm_memory_4
+text x235y345w105h20p14 id=vm_memory_5
+text x235y375w105h20p14 id=vm_memory_6
+text x235y405w105h20p14 id=vm_memory_7
+text x235y435w105h20p14 id=vm_memory_8
+text x235y465w105h20p14 id=vm_memory_9
+text x235y495w105h20p14 id=vm_memory_10
+text x235y525w105h20p14 id=vm_memory_11
+text x578y225w105h20p14 id=vm_memory_12
+text x578y255w105h20p14 id=vm_memory_13
+text x578y285w105h20p14 id=vm_memory_14
+text x578y315w105h20p14 id=vm_memory_15
+text x578y345w105h20p14 id=vm_memory_16
+text x578y375w105h20p14 id=vm_memory_17
+text x578y405w105h20p14 id=vm_memory_18
+text x578y435w105h20p14 id=vm_memory_19
+text x578y465w105h20p14 id=vm_memory_20
+text x578y495w105h20p14 id=vm_memory_21
+text x578y525w105h20p14 id=vm_memory_22
+text x919y225w105h20p14 id=vm_memory_23
+text x919y255w105h20p14 id=vm_memory_24
+text x919y285w105h20p14 id=vm_memory_25
+text x919y315w105h20p14 id=vm_memory_26
+text x919y345w105h20p14 id=vm_memory_27
+text x919y375w105h20p14 id=vm_memory_28
+text x919y405w105h20p14 id=vm_memory_29
+text x919y435w105h20p14 id=vm_memory_30
+text x919y465w105h20p14 id=vm_memory_31
+text x919y495w105h20p14 id=vm_memory_32
+text x919y525w105h20p14 id=vm_memory_33
+text x3y552w200h22p16 id=temp_top
+text x3y576w200h22p16 id=temp_down
+text x210y552w55h22p16 id=temp_top_c
+text x210y576w55h22p16 id=temp_down_c
+text x272y552w185h22p16 id=humidity_top
+text x272y576w185h22p16 id=humidity_down
+text x464y552w35h22p16 id=humidity_top_p
+text x464y576w35h22p16 id=humidity_down_p
+text x515y552w165h22p16 id=volt
+text x515y576w165h22p16 id=tok
+text x687y552w50h22p16 id=volt_v
+text x687y576w50h22p16 id=tok_a
+text x774y552w125h22p16 id=power
+text x774y576w125h22p16 id=summ_power
+text x905y552w100h22p16 id=power_w
+text x905y576w100h22p16 id=summ_power_wh
