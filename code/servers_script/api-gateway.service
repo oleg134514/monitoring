@@ -1,0 +1,26 @@
+[Unit]
+Description=Monitoring API Gateway
+After=postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/oleg
+ExecStart=/usr/bin/python3 /home/oleg/api_gateway.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+Environment="DB_HOST=localhost"
+Environment="DB_PORT=5432"
+Environment="DB_NAME=monitoring"
+Environment="DB_USER=monitoring"
+Environment="DB_PASS=monitoring"
+Environment="LISTEN_HOST=0.0.0.0"
+Environment="LISTEN_PORT=1234"
+Environment="LOG_LEVEL=INFO"
+
+[Install]
+WantedBy=multi-user.target
