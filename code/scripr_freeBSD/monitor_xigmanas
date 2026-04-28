@@ -1,0 +1,55 @@
+#!/bin/sh
+# PROVIDE: monitor_xigmanas
+# REQUIRE: NETWORKING
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="monitor_xigmanas"
+rcvar="monitor_xigmanas_enable"
+command="/root/monitor/monitor-xigmanas-loop.sh"
+pidfile="/var/run/${name}.pid"
+logfile="/var/log/monitor_xigmanas.log"
+
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+status_cmd="${name}_status"
+
+monitor_xigmanas_start() {
+    echo "Starting ${name} with auto-restart at $(date)" | tee -a "$logfile"
+
+    /usr/sbin/daemon -r -f -p "$pidfile" /usr/local/bin/bash "$command"
+
+    if [ $? -eq 0 ]; then
+        echo "Started ${name} with PID $(cat $pidfile 2>/dev/null)" | tee -a "$logfile"
+    else
+        echo "Failed to start ${name}" | tee -a "$logfile"
+    fi
+}
+
+monitor_xigmanas_stop() {
+    if [ -f "$pidfile" ]; then
+        echo "Stopping ${name} at $(date)" | tee -a "$logfile"
+        kill $(cat "$pidfile") 2>/dev/null
+        rm -f "$pidfile"
+    fi
+}
+
+monitor_xigmanas_status() {
+    if [ -f "$pidfile" ]; then
+        pid=$(cat "$pidfile" 2>/dev/null)
+        if pgrep -F "$pidfile" >/dev/null 2>&1; then
+            echo "${name} is running as pid ${pid} (with auto-restart)."
+            return 0
+        else
+            echo "${name} is not running, but PID file exists."
+            return 1
+        fi
+    else
+        echo "${name} is not running."
+        return 1
+    fi
+}
+
+load_rc_config $name
+run_rc_command "$1"
