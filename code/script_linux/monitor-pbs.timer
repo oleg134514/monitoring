@@ -1,0 +1,11 @@
+[Unit]
+Description=Run PBS monitoring agent every 30 minutes
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=30min
+AccuracySec=1
+Unit=monitor-pbs.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitoring Agent - PBS Server Metrics
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/scripts_users/collect_PVE_PBS_info.sh
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

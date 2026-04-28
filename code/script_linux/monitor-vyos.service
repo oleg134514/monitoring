@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitoring Agent - VyOS Router Metrics (10s loop)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/oleg_admin/monitor-vyos-loop.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

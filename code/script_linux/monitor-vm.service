@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitoring Agent - VM/LXC Metrics
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/scripts_users/collect_PVE_vm_info.sh
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target

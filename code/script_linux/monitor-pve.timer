@@ -1,0 +1,11 @@
+[Unit]
+Description=Run PVE monitoring agent every 60 seconds
+
+[Timer]
+OnBootSec=10
+OnUnitActiveSec=60
+AccuracySec=1
+Unit=monitor-pve.service
+
+[Install]
+WantedBy=timers.target

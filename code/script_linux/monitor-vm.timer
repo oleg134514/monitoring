@@ -1,0 +1,11 @@
+[Unit]
+Description=Run VM monitoring agent every 10 minutes
+
+[Timer]
+OnBootSec=15
+OnUnitActiveSec=10min
+AccuracySec=1
+Unit=monitor-vm.service
+
+[Install]
+WantedBy=timers.target
