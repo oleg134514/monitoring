@@ -1,0 +1,24 @@
+[Unit]
+Description=Monitoring Weather Collector
+After=api-gateway.service
+Wants=api-gateway.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/oleg
+ExecStart=/usr/bin/python3 /home/oleg/weather_collector.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+Environment="WEATHER_CITY=Test"
+Environment="WEATHER_LAT=00.0000"
+Environment="WEATHER_LON=00.0000"
+Environment="WEATHER_TZ=0"
+Environment="MONITOR_SERVER=http://localhost:1234"
+Environment="WEATHER_LOG=/dev/null"
+
+[Install]
+WantedBy=multi-user.target
